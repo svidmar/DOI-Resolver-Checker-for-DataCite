@@ -17,10 +17,10 @@ This app connects to the DataCite API to fetch all DOIs for a given prefix and c
 
 ### ℹ️ How to Use the Tool
 
-1. Enter your **DataCite Fabrica username and password**.  
+1. Enter your **DataCite username and password**.  
 2. Provide your **DOI prefix** (e.g., `10.12345`).  
 3. Click **“Check DOI Resolution”** to fetch all DOIs registered with that prefix  
-4. You’ll see a summary chart with the columns ("DOI", "Registered URL", "Resolves (Y/N)", "HTTP Status Code") and can **download a CSV report** of the results.
+4. You’ll see a summary table with the columns ("DOI", "Registered URL", "Resolves (Y/N)", "HTTP Status Code") and can **download a CSV report** of the results.
 
 ---
 
@@ -100,7 +100,7 @@ def hash_credentials(username, password):
 
 if start_check and username and password and prefix:
     credentials_hash = hash_credentials(username, password)
-    st.info(f"Credentials hash: {credentials_hash[:8]}... (used internally, not stored)")
+    st.info(f"Credentials hash: {credentials_hash[:8]}... (not stored)")
 
     with st.spinner("Fetching DOIs from DataCite..."):
         dois = fetch_all_dois(username, password, prefix)
